@@ -1,0 +1,135 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4B0082;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 100px;
+}
+
+.logo-image:hover {
+  cursor: default;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0; 
+  padding: 0;
+}
+
+.nav-menu li {
+  display: inline;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+
+.nav-mob-open, .nav-mob-close {
+  display: none; 
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-menu {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-color: #4B0082;
+    z-index: 10;
+    padding-top: 10px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); 
+  }
+
+  .nav-menu.active {
+    display: flex; 
+    transform: translateX(0); 
+
+  }
+  .nav-mob-open {
+    display: block;
+    position: absolute;
+    right: 20px;
+    width: 80px;
+    height: 50px;
+  }
+
+  .nav-menu.active ~ .nav-mob-open {
+    display: none;
+  }
+
+  .nav-mob-close {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .nav-menu.active ~ .nav-mob-close {
+    display: block;
+  }
+
+  .nav-menu li {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-menu {
+    display: flex; 
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    transform: none;
+    transition: none;
+  }
+
+ 
+  .nav-mob-open, .nav-mob-close {
+    display: none;
+  }
+
+ 
+  .nav-menu li:hover {
+    background-color: #5A009D;
+  }
+}
